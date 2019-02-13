@@ -1,7 +1,9 @@
 class Api::V1::UsersController < ApplicationController
 
-    def new
-      @user = User.new
+    def create
+      # byebug
+      @user = User.create(username: params[:username])
+      render json: @user
     end
 
     def show
@@ -12,7 +14,7 @@ class Api::V1::UsersController < ApplicationController
     private
 
     def user_params
-      params.permit(:username)
+      params.permit(:user).require(:username)
     end
 
 end
