@@ -27,3 +27,15 @@ main {
     align-self: flex-start;
     margin-bottom: -3px;
 }
+
+.input-field {
+    font-size: 24px;
+    text-align: center;
+    
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid white;
+    outline: 0;
+    margin-bottom: 10px;
+    width: 400px;
+}
