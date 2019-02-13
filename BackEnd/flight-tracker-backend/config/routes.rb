@@ -5,4 +5,6 @@ Rails.application.routes.draw do
       resources :users, only: [:create, :show]
     end
   end
+  post '/getflights', to: 'flights#getflights'
+  get '/getflights', to: 'flights#retrieveflights'
 end
