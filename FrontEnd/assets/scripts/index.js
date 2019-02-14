@@ -20,6 +20,20 @@ state = {
       "destinationPlace" : null,
       "outboundDate" : null,
       "adults" : 1
+    },
+    defaultParams:{
+      "inboundDate" : "2019-03-27",
+      "cabinClass" : "economy",
+      "children" : 0,
+      "infants" : 0,
+      "groupPricing" : "false",
+      "country" : "UK",
+      "currency" : "GBP",
+      "locale" : "en-UK",
+      "originPlace" : "LHR-sky",
+      "destinationPlace" : "HKG-sky",
+      "outboundDate" : "2019-03-15",
+      "adults" : 1
     }
 }
 
@@ -32,6 +46,15 @@ const createFlight = () => {
     },
     body: JSON.stringify({flightinfo: state.searchParams})
   })
+  // .then(resp => resp.json())
+}
+
+const getFlightInfo = (inboundDate, outboundDate, originPlace, destinationPlace) => {
+  state.searchParams.inboundDate = inboundDate
+  state.searchParams.outboundDate = outboundDate
+  state.searchParams.originPlace = originPlace
+  state.searchParams.destinationPlace = destinationPlace
+  return createFlight()
 }
 
 

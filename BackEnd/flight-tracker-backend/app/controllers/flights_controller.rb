@@ -6,25 +6,25 @@ class FlightsController < ApplicationController
       headers:{
         "X-RapidAPI-Key" => "d7ed621b7amsh6be8bc126d88794p1b0e91jsn7176abcd046e",
         "Content-Type" => "application/json",
-        "accept" => "application/json"
+        "Accept" => "application/json"
       },
-      parameters: params[:flightinfo]
-        # "inboundDate" => "2019-03-27",
-        # "cabinClass" => "economy",
-        # "children" => 0,
-        # "infants" => 0,
-        # "groupPricing" => "false",
-        # "country" => "UK",
-        # "currency" => "GBP",
-        # "locale" => "en-UK",
-        # "originPlace" => "LHR-sky",
-        # "destinationPlace" => "HKG-sky",
-        # "outboundDate" => "2019-03-15",
-        # "adults" => 1
-      byebug
+      parameters:
+        # params[:flightinfo]
+        {"inboundDate" => params[:flightinfo][:inboundDate],
+        "cabinClass" => "economy",
+        "children" => 0,
+        "infants" => 0,
+        "groupPricing" => "false",
+        "country" => "UK",
+        "currency" => "GBP",
+        "locale" => "en-UK",
+        "originPlace" => params[:flightinfo][:originPlace],
+        "destinationPlace" => params[:flightinfo][:destinationPlace],
+        "outboundDate" => params[:flightinfo][:outboundDate],
+        "adults" => 1}
+        # byebug
       @@key = Flight.getsessionkey(response.headers[:location])
-
-      puts response
+      # puts response
       # render json: retrieveflights
       redirect_to getflights_results_path
     end
@@ -43,8 +43,9 @@ class FlightsController < ApplicationController
         # parameters:{
         #   sessionkey: "dea5adff-cd61-4104-914b-c909e640d3cb"
         # }
-      # puts response
       # byebug
+      # sleep(1)
+      # puts response
       render json: response.body
       # response.body
     end
