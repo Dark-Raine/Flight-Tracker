@@ -1,5 +1,6 @@
 class FlightsController < ApplicationController
 @@key = ""
+
   def getflights
     response = Unirest.post "https://skyscanner-skyscanner-flight-search-v1.p.rapidapi.com/apiservices/pricing/v1.0",
       headers:{
@@ -22,9 +23,10 @@ class FlightsController < ApplicationController
         "adults" => 1
       }
       @@key = Flight.getsessionkey(response.headers[:location])
-      byebug
+      # byebug
       puts response
-      # retrieve_flights
+      # render json: retrieveflights
+      redirect_to getflights_results_path
     end
 
     def retrieveflights
@@ -41,9 +43,10 @@ class FlightsController < ApplicationController
         # parameters:{
         #   sessionkey: "dea5adff-cd61-4104-914b-c909e640d3cb"
         # }
-      puts response
-      byebug
+      # puts response
+      # byebug
       render json: response.body
+      # response.body
     end
 
   end
