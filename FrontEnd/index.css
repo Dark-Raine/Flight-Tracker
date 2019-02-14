@@ -39,3 +39,56 @@ main {
     margin-bottom: 10px;
     width: 400px;
 }
+
+.search-form{
+    display: flex;
+    flex-direction: column;
+    width: 35%;
+    border-radius: 15px;
+    transition: box-shadow 0.5s;
+}
+
+.search-title{
+    text-align: center;
+    font-family: 'Khand', sans-serif;
+    color: white;
+}
+/* 
+.search-form:focus{
+    box-shadow: 0px 0px 15px black;
+}
+
+.mid-textBx{
+    font-size: 28px;
+    text-align: center;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    outline: 0;
+}
+
+.top-textBx{
+    font-size: 28px;
+    text-align: center;
+    background-color: transparent;
+    border: 1px solid white;
+    border-top-left-radius: 15px;
+    border-top-right-radius: 15px;
+    outline: 0;
+}
+
+.bot-textBx{
+    font-size: 28px;
+    text-align: center;
+    background-color: transparent;
+    border: 0px;
+    border-bottom: 1px solid white;
+    border-left: 1px solid white;
+    border-right: 1px solid white;
+    border-bottom-left-radius: 15px;
+    border-bottom-right-radius: 15px;
+    outline: 0;
+
+} */
