@@ -2,13 +2,13 @@ const loginPageEl = document.body.querySelector('#login-page')
 const usrNameEl = document.body.querySelector('#usr-input')
 const loginBtnEl = document.body.querySelector('#login-btn')
 const createUserPath = 'http://localhost:3000/api/v1/users/'
-
+const createFlightPath = 'http://localhost:3000/getflights'
 
 state = {
     user: null,
     retrievedUser: null,
     searchParams: {
-      "inboundDate" : "2019-03-10",
+      "inboundDate" : null ,
       "cabinClass" : "economy",
       "children" : 0,
       "infants" : 0,
@@ -16,11 +16,32 @@ state = {
       "country" : "UK",
       "currency" : "GBP",
       "locale" : "en-UK",
-      "originPlace" : "SFO-sky",
-      "destinationPlace" : "LHR-sky",
-      "outboundDate" : "2019-02-15",
+      "originPlace" : null,
+      "destinationPlace" : null,
+      "outboundDate" : null,
       "adults" : 1
     }
+}
+
+const createFlight = () => {
+  return fetch(createFlightPath, {
+    method: 'POST',
+    headers: {
+      'Accept': 'application/json',
+      'Content-Type':'application/json'
+    },
+    body: JSON.stringify({
+      inboundDate: state.searchParams.inboundDate,
+      outboundDate: state.searchParams.outboundDate,
+      originPlace: state.searchParams.originPlace,
+      destinationPlace: state.searchParams.destinationPlace,
+    })
+  })
+}
+
+const getFlightInboundDate = (inboundDate) => {
+  state.searchParams.inboundDate = inboundDate
+  createFlight()
 }
 
 const createUser = () => {
@@ -35,7 +56,6 @@ const createUser = () => {
     .then(resp => resp.json())
 }
 
-
 const getUserName = (name) => {
     state.user = name
     createUser()
@@ -47,7 +67,6 @@ const appHandler = () => {
         if (eve.target.id === 'login-btn') {
             eve.preventDefault()
             getUserName(usrNameEl.value)
-            
         }
     })
 }
