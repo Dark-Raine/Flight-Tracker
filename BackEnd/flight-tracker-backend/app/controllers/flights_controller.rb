@@ -8,22 +8,22 @@ class FlightsController < ApplicationController
         "Content-Type" => "application/json",
         "accept" => "application/json"
       },
-      parameters:{
-        "inboundDate" => "2019-03-10",
-        "cabinClass" => "economy",
-        "children" => 0,
-        "infants" => 0,
-        "groupPricing" => "false",
-        "country" => "UK",
-        "currency" => "GBP",
-        "locale" => "en-UK",
-        "originPlace" => "SFO-sky",
-        "destinationPlace" => "LHR-sky",
-        "outboundDate" => "2019-02-15",
-        "adults" => 1
-      }
+      parameters: params[:flightinfo]
+        # "inboundDate" => "2019-03-27",
+        # "cabinClass" => "economy",
+        # "children" => 0,
+        # "infants" => 0,
+        # "groupPricing" => "false",
+        # "country" => "UK",
+        # "currency" => "GBP",
+        # "locale" => "en-UK",
+        # "originPlace" => "LHR-sky",
+        # "destinationPlace" => "HKG-sky",
+        # "outboundDate" => "2019-03-15",
+        # "adults" => 1
+      byebug
       @@key = Flight.getsessionkey(response.headers[:location])
-      # byebug
+
       puts response
       # render json: retrieveflights
       redirect_to getflights_results_path

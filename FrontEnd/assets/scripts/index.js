@@ -30,19 +30,10 @@ const createFlight = () => {
       'Accept': 'application/json',
       'Content-Type':'application/json'
     },
-    body: JSON.stringify({
-      inboundDate: state.searchParams.inboundDate,
-      outboundDate: state.searchParams.outboundDate,
-      originPlace: state.searchParams.originPlace,
-      destinationPlace: state.searchParams.destinationPlace,
-    })
+    body: JSON.stringify({flightinfo: state.searchParams})
   })
 }
 
-const getFlightInboundDate = (inboundDate) => {
-  state.searchParams.inboundDate = inboundDate
-  createFlight()
-}
 
 const createUser = () => {
     return fetch(createUserPath, {
