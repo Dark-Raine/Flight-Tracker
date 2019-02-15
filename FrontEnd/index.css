@@ -1,4 +1,4 @@
-/* rgb(113, 169, 247);  blue */ 
+/* rgb(113, 169, 247);  blue */
 * {
     box-sizing: border-box;
     margin: 0;
@@ -9,7 +9,7 @@ body {
 }
 
 main {
-    height: 80vh;
+    /* height: 80vh; */
     /* margin-top: 100px; */
     display: flex;
     flex-direction: column;
@@ -31,7 +31,7 @@ main {
 .input-field {
     font-size: 24px;
     text-align: center;
-    
+
     background-color: transparent;
     border: 0px;
     border-bottom: 1px solid white;
@@ -57,7 +57,7 @@ main {
 nav{
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 nav ul:first-child, nav ul:last-child{
@@ -96,9 +96,16 @@ a{
     background-color: white;
 }
 
-/* .results{
-    width: 400px;
-} */
+div.results{
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    margin-bottom: 10px;
+}
+
+div.results a{
+  text-align: center;
+}
 
 div.card-result{
     text-align: center;
@@ -110,6 +117,8 @@ div.card-result{
     align-items: center;
     border: 1px solid white;
     border-radius: 5px;
+    border-bottom-left-radius: 0px;
+    border-bottom-right-radius: 0px;
 }
 
 .in-out{
@@ -117,21 +126,24 @@ div.card-result{
     /* border: 1px solid rgba(100, 100, 100, 0.418); */
     background-color: rgb(113, 169, 247);
     border-bottom: 1px solid white;
-    
+
 }
+
 .in-dur{
-    width: 100%;
-    background-color: rgb(113, 169, 247);
+    width: 50%;
+    border: none;
+    /* background-color: rgb(113, 169, 247); */
+
     /* border-bottom: 1px solid white; */
     /* border: 1px solid gray; */
 }
 
 .card-result a{
     width: 100%;
-    
+
 }
 
-/* 
+/*
 .search-form:focus{
     box-shadow: 0px 0px 15px black;
 }

@@ -16,9 +16,8 @@ ActiveRecord::Schema.define(version: 2019_02_12_110754) do
   enable_extension "plpgsql"
 
   create_table "flights", force: :cascade do |t|
-    t.string "booking_url"
-    t.date "OutboundDate"
-    t.date "InboundDate"
+    t.string "ArrivalTime"
+    t.string "DepartTime"
     t.integer "Price"
     t.integer "Duration"
     t.string "OriginPlace"

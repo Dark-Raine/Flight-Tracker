@@ -50,4 +50,12 @@ class FlightsController < ApplicationController
       # response.body
     end
 
+    def create
+      # byebug
+      @user = User.find(params[:info][:user_id])
+      @user.flights << Flight.create(ArrivalTime: params[:info][:flight][:arrivalTime],DepartTime: params[:info][:flight][:departTime],Price: params[:info][:flight][:flightPrice],Duration: params[:info][:flight][:flightDuration],OriginPlace: params[:info][:flight][:fromPlace],DestinationPlace: params[:info][:flight][:toPlace])
+      @user.save
+      render json: @user
+    end
+
   end

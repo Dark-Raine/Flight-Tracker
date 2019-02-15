@@ -11,11 +11,11 @@
 </head>
 <body>
     <nav>
-        <ul id="nav-logout"><li><a href="#" class="nav-buttons">Logout</a></li></ul>
+        <ul id="nav-logout"><li><a href="#" id="logout-nav-btn" class="nav-buttons">Logout</a></li></ul>
 
         <ul id="nav-flights">
-            <li><a href="#" class="nav-buttons">Search</a></li>
-            <li><a href="#" class="nav-buttons">Saved Flights</a></li>
+            <li><a href="#" id="search-nav-btn" class="nav-buttons">Search</a></li>
+            <li><a href="#" id="saved-nav-btn" class="nav-buttons">Saved Flights</a></li>
         </ul>
     </nav>
     <main id="login-page">
@@ -33,26 +33,18 @@
             </form>
         <!-- </div> -->
     </main>
-    <main>
+    <main id="search-page">
         <form class="search-form" action="#">
             <h1 class="search-title">SEARCH FOR FLIGHTS</h1>
-            <input type="date" value="2019-04-14" placeholder="Departure Date" name="outboundDate" id="" class="input-field">
-            <input type="date" name="inboundDate" id="" class="input-field">
-            <input type="text" name="outboundLocation" id="" class="input-field">
-            <input type="text" name="inboundLocation" id="" class="input-field">
-            <input type="button" value="Search Flights">
+            <input type="date" value="" placeholder="Departure Date" name="outboundDate" id="outboundDate" class="input-field">
+            <input type="date" value="" name="inboundDate" id="inboundDate" class="input-field">
+            <input type="text" value="" name="outboundLocation" id="outboundLocation" class="input-field">
+            <input type="text" value="" name="inboundLocation" id="inboundLocation" class="input-field">
+            <input type="button" id="search-btn" value="Search Flights">
         </form>
-    </main>
-    <main class="results">
+        <div id="results-stack">
 
-                <div class="card-result">
-                    <p class="in-out">departure</p><p class="in-out">arrival</p>
-                    <p class="in-out">depart time</p><p class="in-out">arrive time</p>
-                    <p class="in-dur">duration: 1h23m</p>
-                </div>
-                <a href="#" class="nav-buttons">Save</a>
-                
-                
+        </div>
     </main>
 
 </body>
